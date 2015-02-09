@@ -10,5 +10,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="settings_toast">The theme change and other settings will only have effect once you restart the app</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_app">Markdown Constructor</string>
+    <string name="description">Click CREATE to start the construction of you Markdown!!</string>
+    <string name="button_start">Create</string>
+    <string name="text_view_constructor">Create your markdown!</string>
+    <string name="radio_button_h1">H1</string>
+    <string name="radio_button_h2">H2</string>
+    <string name="radio_button_h3">H3</string>
+    <string name="radio_button_h4">H4</string>
+    <string name="radio_button_h5">H5</string>
+    <string name="radio_button_h6">H6</string>
+    <string name="edit_text_title">Enter your title</string>
+    <string name="button_add_title">Next</string>
 
 </resources>

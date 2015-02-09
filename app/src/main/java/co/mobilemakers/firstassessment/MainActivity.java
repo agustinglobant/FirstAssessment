@@ -21,6 +21,11 @@ public class MainActivity extends ActionBarActivity {
         getThemeSelected();
         setTheme(mThemeName);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().
+                    add(R.id.container, new StartFragment()).
+                    commit();
+        }
     }
 
 
