@@ -1,16 +1,25 @@
 package co.mobilemakers.firstassessment;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private final static String THEME_PREFERENCE = "theme_preference";
+    private int mThemeName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getThemeSelected();
+        setTheme(mThemeName);
         setContentView(R.layout.activity_main);
     }
 
@@ -28,12 +37,33 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        Boolean handle = false;
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                Intent intent =  new Intent(this, AppSettingsActivity.class);
+                startActivity(intent);
+                Toast.makeText(this,getString(R.string.settings_toast), Toast.LENGTH_LONG).show();
+                handle = true;
         }
 
-        return super.onOptionsItemSelected(item);
+        if (!handle) {
+            handle = super.onOptionsItemSelected(item);
+        }
+
+        return handle;
+    }
+
+    private void getThemeSelected() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        switch (Integer.valueOf(sharedPreferences.getString(THEME_PREFERENCE, "1"))){
+            case 1:
+                mThemeName = R.style.FirstTheme;
+                break;
+            case 2:
+                mThemeName = R.style.SecondTheme;
+                break;
+        }
     }
 }
