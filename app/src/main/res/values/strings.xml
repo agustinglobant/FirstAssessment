@@ -37,5 +37,8 @@
     <string name="button_show">Show Markdown!</string>
     <string name="button_ok">OK</string>
     <string name="button_go_back">Back</string>
+    <string name="text_view_link">Add your link</string>
+    <string name="text_view_text">Text:</string>
+    <string name="text_view_url">Url:</string>
 
 </resources>

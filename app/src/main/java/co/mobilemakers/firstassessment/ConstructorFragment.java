@@ -14,7 +14,7 @@ import android.widget.Button;
  */
 public class ConstructorFragment extends Fragment {
 
-    Button mButtonSubtitle, mButtonEmphasis, mButtonShow;
+    Button mButtonSubtitle, mButtonEmphasis, mButtonShow, mButtonLink;
 
     public ConstructorFragment() {
         // Required empty public constructor
@@ -48,6 +48,17 @@ public class ConstructorFragment extends Fragment {
             }
         });
 
+        mButtonLink = (Button) rootView.findViewById(R.id.button_add_new_link);
+        mButtonLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().
+                        addToBackStack(null).
+                        replace(R.id.container, new LinkFragment()).
+                        commit();
+            }
+        });
+
         mButtonShow = (Button) rootView.findViewById(R.id.button_show);
         mButtonShow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +69,7 @@ public class ConstructorFragment extends Fragment {
                         commit();
             }
         });
+
         return rootView;
     }
 
