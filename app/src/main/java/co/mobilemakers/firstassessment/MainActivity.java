@@ -10,10 +10,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements Changeable {
 
     private final static String THEME_PREFERENCE = "theme_preference";
     private int mThemeName;
+    String markdownCode = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,5 +71,20 @@ public class MainActivity extends ActionBarActivity {
                 mThemeName = R.style.SecondTheme;
                 break;
         }
+    }
+
+    @Override
+    public void addMarkdown(String mdown) {
+        markdownCode += mdown;
+    }
+
+    @Override
+    public void cleanMarkdown() {
+        markdownCode = "";
+    }
+
+    @Override
+    public String getMarkdown() {
+        return markdownCode;
     }
 }

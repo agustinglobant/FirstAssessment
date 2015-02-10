@@ -32,7 +32,7 @@ public class StartFragment extends Fragment {
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).
-                        replace(R.id.container, new ConstructorFragment()).
+                        replace(R.id.container, new InitializeMarkdownFragment()).
                         commit();
             }
         });

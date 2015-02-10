@@ -13,7 +13,7 @@
     <string name="title_app">Markdown Constructor</string>
     <string name="description">Click CREATE to start the construction of you Markdown!!</string>
     <string name="button_start">Create</string>
-    <string name="text_view_constructor">Create your markdown!</string>
+    <string name="text_view_initialize">Initialize your markdown with a Title!</string>
     <string name="radio_button_h1">H1</string>
     <string name="radio_button_h2">H2</string>
     <string name="radio_button_h3">H3</string>
@@ -22,5 +22,20 @@
     <string name="radio_button_h6">H6</string>
     <string name="edit_text_title">Enter your title</string>
     <string name="button_add_title">Next</string>
+    <string name="text_view_constructor">Add your tags!</string>
+    <string name="button_add">Add</string>
+    <string name="button_add_emphasis">Emphasis paragraph</string>
+    <string name="button_add_link">Link</string>
+    <string name="button_add_image">Image</string>
+    <string name="text_view_subtitle">Add your subtitle</string>
+    <string name="edit_text_subtitle">Add your subtitle</string>
+    <string name="button_add_subtitle">Subtitle</string>
+    <string name="text_view_emphasis">Add your paragraph with emphasis</string>
+    <string name="radio_button_italic">Italic</string>
+    <string name="radio_button_bold">Bold</string>
+    <string name="radio_button_scratch">Scratch</string>
+    <string name="button_show">Show Markdown!</string>
+    <string name="button_ok">OK</string>
+    <string name="button_go_back">Back</string>
 
 </resources>
