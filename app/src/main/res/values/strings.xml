@@ -24,13 +24,13 @@
     <string name="button_add_title">Next</string>
     <string name="text_view_constructor">Add your tags!</string>
     <string name="button_add">Add</string>
-    <string name="button_add_emphasis">Emphasis paragraph</string>
-    <string name="button_add_link">Link</string>
+    <string name="button_add_text">Text</string>
+    <string name="button_add_link">Link/Image</string>
     <string name="button_add_image">Image</string>
     <string name="text_view_subtitle">Add your subtitle</string>
     <string name="edit_text_subtitle">Add your subtitle</string>
     <string name="button_add_subtitle">Subtitle</string>
-    <string name="text_view_emphasis">Add your paragraph with emphasis</string>
+    <string name="text_view_emphasis">Add your text with emphasis</string>
     <string name="radio_button_italic">Italic</string>
     <string name="radio_button_bold">Bold</string>
     <string name="radio_button_scratch">Scratch</string>
@@ -40,5 +40,8 @@
     <string name="text_view_link">Add your link</string>
     <string name="text_view_text">Text:</string>
     <string name="text_view_url">Url:</string>
+    <string name="radio_button_link">Link</string>
+    <string name="radio_button_image">Image</string>
+    <string name="radio_button_normal">Normal</string>
 
 </resources>

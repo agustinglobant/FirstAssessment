@@ -9,4 +9,6 @@ public interface Changeable {
     public void cleanMarkdown();
 
     public String getMarkdown();
+
+    public void updateView();
 }

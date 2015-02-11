@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
 
 /**
@@ -17,6 +18,7 @@ public class LinkFragment extends Fragment {
 
     Button mButton;
     EditText mEditTextText, mEditTextUrl;
+    RadioGroup mRadioGroupType;
 
     public LinkFragment() {
         // Required empty public constructor
@@ -31,18 +33,27 @@ public class LinkFragment extends Fragment {
         mButton = (Button)rootView.findViewById(R.id.button_add_link);
         mEditTextText = (EditText)rootView.findViewById(R.id.edit_text_text);
         mEditTextUrl = (EditText)rootView.findViewById(R.id.edit_text_url);
-
+        mRadioGroupType = (RadioGroup)rootView.findViewById(R.id.radio_group_type);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).addMarkdown("["+mEditTextText.getText().toString()+"]"+
-                                                          "("+mEditTextUrl.getText().toString()+")\n");
-
+                String markdown = prepareString();
+                ((MainActivity)getActivity()).addMarkdown(markdown);
 
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).
                         replace(R.id.container, new ConstructorFragment()).
                         commit();
+            }
+
+            private String prepareString() {
+                String m = "";
+                if (mRadioGroupType.getCheckedRadioButtonId() == R.id.radio_button_image){
+                    m += "!";
+                }
+                m += "["+mEditTextText.getText().toString()+"]"+
+                        "("+mEditTextUrl.getText().toString()+")\n";
+                return m;
             }
         });
         return rootView;

@@ -24,8 +24,16 @@ public class MainActivity extends ActionBarActivity implements Changeable {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().
-                    add(R.id.container, new StartFragment()).
+                    add(R.id.container, new InitializeMarkdownFragment()).
                     commit();
+        }
+
+        if (findViewById(R.id.container_show) != null) {
+            if (savedInstanceState != null) {
+                getSupportFragmentManager().beginTransaction().
+                        add(R.id.container_show, new ShowFragment()).
+                        commit();
+            }
         }
     }
 
@@ -74,6 +82,18 @@ public class MainActivity extends ActionBarActivity implements Changeable {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("markdown", markdownCode);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        markdownCode = savedInstanceState.getString("markdown");
+    }
+
+    @Override
     public void addMarkdown(String mdown) {
         markdownCode += mdown;
     }
@@ -86,5 +106,13 @@ public class MainActivity extends ActionBarActivity implements Changeable {
     @Override
     public String getMarkdown() {
         return markdownCode;
+    }
+
+    @Override
+    public void updateView() {
+        ShowFragment showFragment = (ShowFragment) getSupportFragmentManager().findFragmentById(R.id.show_fragment);
+        if (showFragment != null){
+            showFragment.showMarkdown(markdownCode);
+        }
     }
 }

@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="co.mobilemakers.firstassessment.EmphasisFragment"
+    tools:context="co.mobilemakers.firstassessment.TextFragment"
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
@@ -36,8 +36,15 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
-            android:checkedButton="@id/radio_button_italic"
+            android:checkedButton="@+id/radio_button_normal"
             android:id="@+id/radio_group_emphasis">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_button_normal"
+                android:id="@id/radio_button_normal"
+                android:layout_weight="1" />
 
             <RadioButton
                 android:layout_width="0dp"

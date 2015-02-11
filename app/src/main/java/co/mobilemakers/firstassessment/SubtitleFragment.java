@@ -38,18 +38,18 @@ public class SubtitleFragment extends Fragment {
         mButtonAddSubtitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String title = "";
+                String subtitle = "\n\n";
 
                 switch (mRadioGroupSize.getCheckedRadioButtonId()) {
-                    case R.id.radio_button_h2: title="##"; break;
-                    case R.id.radio_button_h3: title="###"; break;
-                    case R.id.radio_button_h4: title="####"; break;
-                    case R.id.radio_button_h5: title="#####"; break;
-                    case R.id.radio_button_h6: title="######"; break;
+                    case R.id.radio_button_h2: subtitle="##"; break;
+                    case R.id.radio_button_h3: subtitle="###"; break;
+                    case R.id.radio_button_h4: subtitle="####"; break;
+                    case R.id.radio_button_h5: subtitle="#####"; break;
+                    case R.id.radio_button_h6: subtitle="######"; break;
                 }
-                title += mEditTextSubtitle.getText().toString()+ "\n";
+                subtitle += mEditTextSubtitle.getText().toString()+ "\n\n";
 
-                ((MainActivity)getActivity()).addMarkdown(title);
+                ((MainActivity)getActivity()).addMarkdown(subtitle);
 
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).

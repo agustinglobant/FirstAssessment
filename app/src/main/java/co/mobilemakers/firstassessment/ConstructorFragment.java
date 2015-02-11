@@ -37,13 +37,13 @@ public class ConstructorFragment extends Fragment {
            }
         });
 
-        mButtonEmphasis = (Button) rootView.findViewById(R.id.button_add_new_emphasis);
+        mButtonEmphasis = (Button) rootView.findViewById(R.id.button_add_new_text);
         mButtonEmphasis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).
-                        replace(R.id.container, new EmphasisFragment()).
+                        replace(R.id.container, new TextFragment()).
                         commit();
             }
         });
@@ -59,16 +59,18 @@ public class ConstructorFragment extends Fragment {
             }
         });
 
-        mButtonShow = (Button) rootView.findViewById(R.id.button_show);
-        mButtonShow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction().
-                        addToBackStack(null).
-                        replace(R.id.container, new ShowFragment()).
-                        commit();
-            }
-        });
+        if (getActivity().findViewById(R.id.container_show) == null){
+            mButtonShow = (Button) rootView.findViewById(R.id.button_show);
+            mButtonShow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getFragmentManager().beginTransaction().
+                            addToBackStack(null).
+                            replace(R.id.container, new ShowFragment()).
+                            commit();
+                }
+            });
+        }
 
         return rootView;
     }

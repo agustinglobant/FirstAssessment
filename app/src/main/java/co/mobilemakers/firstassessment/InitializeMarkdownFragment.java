@@ -1,6 +1,7 @@
 package co.mobilemakers.firstassessment;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,11 +20,17 @@ public class InitializeMarkdownFragment extends Fragment {
     Button mButtonAddTitle;
     RadioGroup mRadioGroupSize;
     EditText mEditTextTitle;
+    Changeable mActivity;
 
     public InitializeMarkdownFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mActivity = (Changeable) activity;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +56,8 @@ public class InitializeMarkdownFragment extends Fragment {
                 }
                 title += mEditTextTitle.getText().toString()+ "\n\n";
 
-                ((MainActivity)getActivity()).addMarkdown(title);
+                mActivity.addMarkdown(title);
+                mActivity.updateView();
 
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).
