@@ -1,16 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/show_fragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="co.mobilemakers.firstassessment.ShowFragment"
-    android:orientation="vertical">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/show_fragment"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="co.mobilemakers.firstassessment.ShowFragment"
+              android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="fill_parent"
         android:layout_weight="1"
         android:layout_margin="10dp"
         android:background="#000000">
@@ -25,10 +25,37 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="New Text"
                 android:id="@+id/text_view_show_markdown"
-                android:layout_margin="20dp"
-                android:layout_gravity="center_horizontal"
-                android:inputType="textMultiLine" />
+                android:layout_margin="20dp" />
         </LinearLayout>
     </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_go_back"
+            android:id="@+id/button_go_back"
+            android:layout_weight="1" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_cancel"
+            android:id="@+id/button_cancel"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_ok"
+            android:id="@+id/button_ok"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
 </LinearLayout>

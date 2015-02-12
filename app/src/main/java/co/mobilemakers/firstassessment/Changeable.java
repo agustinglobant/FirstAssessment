@@ -10,5 +10,4 @@ public interface Changeable {
 
     public String getMarkdown();
 
-    public void updateView();
 }

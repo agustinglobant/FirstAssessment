@@ -4,6 +4,8 @@ package co.mobilemakers.firstassessment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,10 +39,33 @@ public class InitializeMarkdownFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_initialize_markdown, container, false);
-        mButtonAddTitle = (Button)rootView.findViewById(R.id.button_add_title);
-        mRadioGroupSize = (RadioGroup)rootView.findViewById(R.id.radio_group_title_size);
-        mEditTextTitle  = (EditText)rootView.findViewById(R.id.edit_text_title);
+        findWidgets(rootView);
+        setupButton();
+        mEditTextTitle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().isEmpty()){
+                    mButtonAddTitle.setEnabled(true);
+                } else {
+                    mButtonAddTitle.setEnabled(false);
+                }
+            }
+        });
+        return rootView;
+    }
+
+    private void setupButton() {
+        mButtonAddTitle.setEnabled(false);
         mButtonAddTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +82,6 @@ public class InitializeMarkdownFragment extends Fragment {
                 title += mEditTextTitle.getText().toString()+ "\n\n";
 
                 mActivity.addMarkdown(title);
-                mActivity.updateView();
 
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).
@@ -66,7 +90,12 @@ public class InitializeMarkdownFragment extends Fragment {
 
             }
         });
-        return rootView;
+    }
+
+    private void findWidgets(View rootView) {
+        mButtonAddTitle = (Button)rootView.findViewById(R.id.button_add_title);
+        mRadioGroupSize = (RadioGroup)rootView.findViewById(R.id.radio_group_title_size);
+        mEditTextTitle  = (EditText)rootView.findViewById(R.id.edit_text_title);
     }
 
 

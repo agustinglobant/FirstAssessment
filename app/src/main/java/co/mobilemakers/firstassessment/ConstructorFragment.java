@@ -15,6 +15,7 @@ import android.widget.Button;
 public class ConstructorFragment extends Fragment {
 
     Button mButtonSubtitle, mButtonEmphasis, mButtonShow, mButtonLink;
+    Changeable mActivity;
 
     public ConstructorFragment() {
         // Required empty public constructor
@@ -24,30 +25,31 @@ public class ConstructorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_constructor, container, false);
-        mButtonSubtitle = (Button) rootView.findViewById(R.id.button_add_new_subtitle);
-        mButtonSubtitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction().
-                        addToBackStack(null).
-                        replace(R.id.container, new SubtitleFragment()).
-                        commit();
-           }
-        });
+        mActivity = (Changeable) getActivity();
+        setupButtonSubtitle(rootView);
+        setupButtonEmphasis(rootView);
+        setupButtonLink(rootView);
+        setupButtonShow(rootView);
 
-        mButtonEmphasis = (Button) rootView.findViewById(R.id.button_add_new_text);
-        mButtonEmphasis.setOnClickListener(new View.OnClickListener() {
+
+        return rootView;
+    }
+
+    private void setupButtonShow(View rootView) {
+        mButtonShow = (Button) rootView.findViewById(R.id.button_show);
+        mButtonShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).
-                        replace(R.id.container, new TextFragment()).
+                        replace(R.id.container, new ShowFragment()).
                         commit();
             }
         });
+    }
 
+    private void setupButtonLink(View rootView) {
         mButtonLink = (Button) rootView.findViewById(R.id.button_add_new_link);
         mButtonLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,22 +60,37 @@ public class ConstructorFragment extends Fragment {
                         commit();
             }
         });
+    }
 
-        if (getActivity().findViewById(R.id.container_show) == null){
-            mButtonShow = (Button) rootView.findViewById(R.id.button_show);
-            mButtonShow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getFragmentManager().beginTransaction().
-                            addToBackStack(null).
-                            replace(R.id.container, new ShowFragment()).
-                            commit();
-                }
-            });
-        }
+    private void setupButtonEmphasis(View rootView) {
+        mButtonEmphasis = (Button) rootView.findViewById(R.id.button_add_new_text);
+        mButtonEmphasis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().
+                        addToBackStack(null).
+                        replace(R.id.container, new TextFragment()).
+                        commit();
+            }
+        });
+    }
 
-        return rootView;
+    private void setupButtonSubtitle(View rootView) {
+        mButtonSubtitle = (Button) rootView.findViewById(R.id.button_add_new_subtitle);
+        mButtonSubtitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().
+                        addToBackStack(null).
+                        replace(R.id.container, new SubtitleFragment()).
+                        commit();
+           }
+        });
     }
 
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
 }

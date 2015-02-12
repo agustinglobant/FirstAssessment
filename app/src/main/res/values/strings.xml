@@ -43,5 +43,6 @@
     <string name="radio_button_link">Link</string>
     <string name="radio_button_image">Image</string>
     <string name="radio_button_normal">Normal</string>
+    <string name="button_cancel">Clean</string>
 
 </resources>

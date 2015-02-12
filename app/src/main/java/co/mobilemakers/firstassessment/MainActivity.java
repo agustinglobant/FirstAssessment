@@ -27,14 +27,6 @@ public class MainActivity extends ActionBarActivity implements Changeable {
                     add(R.id.container, new InitializeMarkdownFragment()).
                     commit();
         }
-
-        if (findViewById(R.id.container_show) != null) {
-            if (savedInstanceState != null) {
-                getSupportFragmentManager().beginTransaction().
-                        add(R.id.container_show, new ShowFragment()).
-                        commit();
-            }
-        }
     }
 
 
@@ -108,11 +100,4 @@ public class MainActivity extends ActionBarActivity implements Changeable {
         return markdownCode;
     }
 
-    @Override
-    public void updateView() {
-        ShowFragment showFragment = (ShowFragment) getSupportFragmentManager().findFragmentById(R.id.show_fragment);
-        if (showFragment != null){
-            showFragment.showMarkdown(markdownCode);
-        }
-    }
 }

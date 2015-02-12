@@ -1,8 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="co.mobilemakers.firstassessment.TextFragment"
-    android:orientation="vertical">
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="co.mobilemakers.firstassessment.TextFragment"
+              android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -26,47 +26,46 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:weightSum="1">
 
         <RadioGroup
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
+            android:orientation="horizontal"
             android:checkedButton="@+id/radio_button_normal"
             android:id="@+id/radio_group_emphasis"
-            >
+            android:layout_margin="25dp">
 
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/radio_button_normal"
                 android:id="@id/radio_button_normal"
-                />
+                android:layout_weight="1"/>
 
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/radio_button_italic"
                 android:id="@+id/radio_button_italic"
+                android:layout_weight="1"
                 android:textStyle="italic"/>
 
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/radio_button_bold"
                 android:id="@+id/radio_button_bold"
+                android:layout_weight="1"
                 android:textStyle="bold"/>
 
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/radio_button_scratch"
                 android:id="@+id/radio_button_scratch"
-                />
+                android:layout_weight="1"/>
         </RadioGroup>
 
         <EditText
@@ -76,7 +75,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:inputType="textMultiLine"
-            android:layout_weight="0.26" />
+            />
 
         <Button
             android:layout_width="wrap_content"

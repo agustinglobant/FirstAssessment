@@ -4,6 +4,8 @@ package co.mobilemakers.firstassessment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +40,33 @@ public class TextFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_text, container, false);
-        mButtonAdd = (Button)rootView.findViewById(R.id.button_add_emphasis);
-        mRadioGroup = (RadioGroup)rootView.findViewById(R.id.radio_group_emphasis);
-        mEditText = (EditText)rootView.findViewById(R.id.edit_text_paragraph_emphasis);
+        findWidgets(rootView);
+        setupButton();
+        mEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().isEmpty()){
+                    mButtonAdd.setEnabled(true);
+                } else {
+                    mButtonAdd.setEnabled(false);
+                }
+            }
+        });
+        return rootView;
+    }
+
+    private void setupButton() {
+        mButtonAdd.setEnabled(false);
         mButtonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,14 +87,19 @@ public class TextFragment extends Fragment {
                 }
 
                 mActivity.addMarkdown(emphasis+mEditText.getText().toString()+emphasis+" ");
-                mActivity.updateView();
+
                 getFragmentManager().beginTransaction().
                         addToBackStack(null).
                         replace(R.id.container, new ConstructorFragment()).
                         commit();
             }
         });
-        return rootView;
+    }
+
+    private void findWidgets(View rootView) {
+        mButtonAdd = (Button)rootView.findViewById(R.id.button_add_emphasis);
+        mRadioGroup = (RadioGroup)rootView.findViewById(R.id.radio_group_emphasis);
+        mEditText = (EditText)rootView.findViewById(R.id.edit_text_paragraph_emphasis);
     }
 
 

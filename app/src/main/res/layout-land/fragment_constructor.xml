@@ -30,31 +30,39 @@
         android:background="@android:color/background_dark">
 
         <Button
+            android:id="@+id/button_add_new_subtitle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="@string/button_add_subtitle"
-            android:id="@+id/button_add_new_subtitle"
             android:layout_weight="1"
             android:layout_margin="5dp"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
 
         <Button
+            android:id="@+id/button_add_new_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="@string/button_add_text"
-            android:id="@+id/button_add_new_text"
             android:layout_weight="1"
             android:layout_margin="5dp"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
 
         <Button
+            android:id="@+id/button_add_new_link"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="@string/button_add_link"
-            android:id="@+id/button_add_new_link"
             android:layout_weight="1"
             android:layout_margin="5dp"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/button_show"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@string/button_show"
+            android:layout_weight="1"
+            android:layout_margin="5dp" />
     </LinearLayout>
 
 </LinearLayout>
